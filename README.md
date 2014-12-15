@@ -98,8 +98,8 @@ David Stanek (dstanek@dstanek.com).
 Please make sure to copy both of us
 so that we can make sure you get the best answer as soon as possible.
 
-Previous Versions
------------------
+Other Versions
+--------------
 
 Looking for an earlier version of this tutorial
 as presented at CodeMash 2013 and 2014?
