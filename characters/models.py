@@ -32,10 +32,37 @@ def roll_dice(times, sides, modifier=0):
     return sum(map(lambda x: randint(1, sides), range(times))) + modifier
 
 
+class Alignment:
+    LAWFUL_GOOD = 'LG'
+    LAWFUL_NEUTRAL = 'LN'
+    LAWFUL_EVIL = 'LE'
+    NEUTRAL_GOOD = 'NG'
+    NEUTRAL = 'NN'
+    NEUTRAL_EVIL = 'NE'
+    CHAOTIC_GOOD = 'CG'
+    CHAOTIC_NEUTRAL = 'CN'
+    CHAOTIC_EVIL = 'CE'
+
+    CHOICES = (
+        (LAWFUL_GOOD, 'Lawful Good'),
+        (LAWFUL_NEUTRAL, 'Lawful Neutral'),
+        (LAWFUL_EVIL, 'Lawful Evil'),
+        (NEUTRAL_GOOD, 'Neutral Good'),
+        (NEUTRAL, 'Netural'),
+        (NEUTRAL_EVIL, 'Neutral Evil'),
+        (CHAOTIC_GOOD, 'Chaotic Good'),
+        (CHAOTIC_NEUTRAL, 'Chaotic Neutral'),
+        (CHAOTIC_EVIL, 'Chaotic Evil'),
+    )
+
+
 class Character(models.Model):
 
     name = models.CharField(max_length=200)
     background = models.TextField()
+
+    alignment = models.CharField(max_length=2, choices=Alignment.CHOICES,
+            default=Alignment.NEUTRAL)
 
     level = models.IntegerField(default=1)
     experience_points = models.IntegerField(default=0)
