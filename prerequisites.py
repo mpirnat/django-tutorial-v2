@@ -25,13 +25,14 @@ except ImportError:
 
 
 # Check that we have the expected version of Django
-expected_version = (1, 7, 1)
+expected_version = '1.7.1'
+installed_version = django.get_version()
 try:
-    assert django.VERSION[:3] == expected_version
+    assert installed_version == expected_version
 except AssertionError:
     print("It doesn't look like you have the expected version "
             "of Django installed.")
-    print("You have {0}".format('.'.join([str(i) for i in django.VERSION][:3])))
+    print("You have {0}.".format(installed_version))
     sys.exit(1)
 
 
