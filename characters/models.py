@@ -79,6 +79,11 @@ class Character(models.Model):
     name = models.CharField(max_length=200)
     background = models.TextField()
 
+    race = models.ForeignKey(Race)
+    # This name isn't ideal, but 'class' is a Python builtin, so here we are...
+    # I went with 'cclass' as short for 'character class'.
+    cclass = models.ForeignKey(Class)
+
     alignment = models.CharField(max_length=2, choices=Alignment.CHOICES,
             default=Alignment.NEUTRAL)
 
