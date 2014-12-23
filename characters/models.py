@@ -77,6 +77,18 @@ class Class(models.Model):
         verbose_name_plural = "Classes"
 
 
+class Item(models.Model):
+
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+
+    value = models.IntegerField(default=0)
+    weight = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.name
+
+
 class Character(models.Model):
 
     name = models.CharField(max_length=200)
@@ -103,11 +115,10 @@ class Character(models.Model):
     wisdom = models.IntegerField(default=generate_stat)
     charisma = models.IntegerField(default=generate_stat)
 
+    inventory = models.ManyToManyField(Item)
+
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
-
-
-
