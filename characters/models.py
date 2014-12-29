@@ -58,7 +58,7 @@ class Alignment:
 
 class Race(models.Model):
 
-    name = models.CharField(max_length=200)
+    name = models.CharField('race', max_length=200)
     description = models.TextField()
 
     def __str__(self):
@@ -67,7 +67,7 @@ class Race(models.Model):
 
 class Class(models.Model):
 
-    name = models.CharField(max_length=200)
+    name = models.CharField('class', max_length=200)
     description = models.TextField()
 
     def __str__(self):
