@@ -115,7 +115,7 @@ class Character(models.Model):
     wisdom = models.IntegerField(default=generate_stat)
     charisma = models.IntegerField(default=generate_stat)
 
-    inventory = models.ManyToManyField(Item)
+    inventory = models.ManyToManyField(Item, null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
