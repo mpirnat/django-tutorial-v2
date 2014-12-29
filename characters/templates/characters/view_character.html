@@ -16,4 +16,15 @@
 <p><label>Wisdom:</label> {{character.wisdom}}</p>
 <p><label>Charisma:</label> {{character.charisma}}</p>
 
+<h3>Inventory</h3>
+{% if character.inventory.all %}
+    <ul>
+        {% for item in character.inventory.all %}
+            <li>{{item.name}}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Empty!</p>
+{% endif %}
+
 <p><a href="/characters/">Back</a></p>
