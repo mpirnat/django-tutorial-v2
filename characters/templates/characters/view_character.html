@@ -1,0 +1,19 @@
+<h1>{{character.name}}</h1>
+<h2>Level {{character.level}} {{character.race.name}} {{character.cclass.name}}</h2>
+
+<h3>Background</h3>
+{% if character.background %}
+    <p>{{character.background}}</p>
+{% else %}
+    <p>Unknown -- a mystery wrapped in an enigma!</p>
+{% endif %}
+
+<h3>Stats</h3>
+<p><label>Strength:</label> {{character.strength}}</p>
+<p><label>Dexterity:</label> {{character.dexterity}}</p>
+<p><label>Constitution:</label> {{character.constitution}}</p>
+<p><label>Intelligence:</label> {{character.intelligence}}</p>
+<p><label>Wisdom:</label> {{character.wisdom}}</p>
+<p><label>Charisma:</label> {{character.charisma}}</p>
+
+<p><a href="/characters/">Back</a></p>

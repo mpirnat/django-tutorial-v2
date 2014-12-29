@@ -12,4 +12,5 @@ def index(request):
 
 def view_character(request, character_id):
     character = Character.objects.get(id=character_id)
-    return HttpResponse(character)
+    context = {'character': character}
+    return render(request, 'characters/view_character.html', context)
