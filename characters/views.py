@@ -6,8 +6,8 @@ from characters.models import Character
 
 def index(request):
     all_characters = Character.objects.all()
-    output = '<br>'.join([character.name for character in all_characters])
-    return HttpResponse(output)
+    context = {'all_characters': all_characters}
+    return render(request, 'characters/index.html', context)
 
 
 def view_character(request, character_id):
