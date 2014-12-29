@@ -85,7 +85,7 @@ class Character(models.Model):
     race = models.ForeignKey(Race)
     # This name isn't ideal, but 'class' is a Python builtin, so here we are...
     # I went with 'cclass' as short for 'character class'.
-    cclass = models.ForeignKey(Class)
+    cclass = models.ForeignKey(Class, verbose_name="class")
 
     alignment = models.CharField(max_length=2, choices=Alignment.CHOICES,
             default=Alignment.NEUTRAL)
