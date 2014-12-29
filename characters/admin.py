@@ -7,6 +7,8 @@ class CharacterAdmin(admin.ModelAdmin):
     list_display = ('name', 'level', 'race', 'cclass', 'created', 'modified')
     list_filter = ('cclass__name', 'race__name', 'created', 'modified')
 
+    search_fields = ['name', 'background', 'race__name', 'cclass__name']
+
     readonly_fields = ('created', 'modified')
 
     fieldsets = [
