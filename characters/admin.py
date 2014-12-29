@@ -5,6 +5,7 @@ from characters.models import Character, Race, Class, Item
 class CharacterAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'level', 'race', 'cclass', 'created', 'modified')
+    list_filter = ('cclass__name', 'race__name', 'created', 'modified')
 
     readonly_fields = ('created', 'modified')
 
