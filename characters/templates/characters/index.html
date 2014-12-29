@@ -1,0 +1,10 @@
+<h1>Characters</h1>
+{% if all_characters %}
+    <ul>
+    {% for character in all_characters %}
+        <li><a href="/characters/{{character.id}}/">{{character.name}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No characters have been created.</p>
+{% endif %}
