@@ -2,7 +2,7 @@
 {% if all_characters %}
     <ul>
     {% for character in all_characters %}
-        <li><a href="{% url 'view' character.id %}">{{character.name}}</a></li>
+        <li><a href="{% url 'characters:view' character.id %}">{{character.name}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
