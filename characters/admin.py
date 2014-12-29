@@ -4,6 +4,8 @@ from characters.models import Character, Race, Class, Item
 
 class CharacterAdmin(admin.ModelAdmin):
 
+    list_display = ('name', 'level', 'race', 'cclass', 'created', 'modified')
+
     readonly_fields = ('created', 'modified')
 
     fieldsets = [
