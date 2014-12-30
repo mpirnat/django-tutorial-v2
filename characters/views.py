@@ -11,7 +11,7 @@ class CharacterIndexView(generic.ListView):
     context_object_name = 'all_characters'  # better than 'object_list'
 
     def get_queryset(self):
-        return Character.objects.all()
+        return Character.objects.all().order_by('name')
 
 
 class CharacterDetailView(generic.DetailView):
