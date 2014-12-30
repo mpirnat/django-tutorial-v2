@@ -1,11 +1,13 @@
+from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views import generic
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView
 
 from characters.forms import CharacterForm
 from characters.models import Character, Class, Race
 
 
-class CharacterIndexView(generic.ListView):
+class CharacterIndexView(ListView):
 
     template_name = 'characters/index.html'
     context_object_name = 'all_characters'  # better than 'object_list'
@@ -14,26 +16,22 @@ class CharacterIndexView(generic.ListView):
         return Character.objects.all().order_by('name')
 
 
-class CharacterDetailView(generic.DetailView):
+class CharacterDetailView(DetailView):
 
     model = Character
     template_name = 'characters/view_character.html'
 
 
-def create_character(request):
-    form = CharacterForm(request.POST or None)
+class CharacterCreationView(CreateView):
 
-    if request.method == 'POST' and form.is_valid():
+    model = Character
+    template_name = 'characters/create_character.html'
+    fields = ['name', 'background']
 
-        character = Character(
-                name=request.POST['name'],
-                background=request.POST['background'],
-                race_id=1,
-                cclass_id=1
-        )
-        character.save()
+    def form_valid(self, form):
+        form.instance.race_id = 1
+        form.instance.cclass_id = 1
+        return super(CharacterCreationView, self).form_valid(form)
 
-        return redirect('characters:view', character_id=character.id)
-
-    context = {'form': form}
-    return render(request, 'characters/create_character.html', context)
+    def get_success_url(self):
+        return reverse('characters:view', kwargs={'pk': self.object.pk})
