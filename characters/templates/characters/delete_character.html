@@ -1,0 +1,12 @@
+<h1>Delete Character</h1>
+
+<p>Are you sure you want to delete {{object.name}}?</p>
+
+<p>This action is irreversible (just like my raincoat)!</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <button href="{% url 'characters:view' object.id %}">Cancel</button>
+    <input type="submit" value="Delete!">
+</form>
+
