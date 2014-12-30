@@ -21,14 +21,11 @@ def create_character(request):
 
     if request.method == 'POST' and form.is_valid():
 
-        race = Race.objects.get(id=1)
-        cclass = Class.objects.get(id=1)
-
         character = Character(
                 name=request.POST['name'],
                 background=request.POST['background'],
-                race=race,
-                cclass=cclass
+                race_id=1,
+                cclass_id=1
         )
         character.save()
 
