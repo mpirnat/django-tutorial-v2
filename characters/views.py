@@ -1,19 +1,23 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views import generic
 
 from characters.forms import CharacterForm
 from characters.models import Character, Class, Race
 
 
-def index(request):
-    all_characters = Character.objects.all()
-    context = {'all_characters': all_characters}
-    return render(request, 'characters/index.html', context)
+class CharacterIndexView(generic.ListView):
+
+    template_name = 'characters/index.html'
+    context_object_name = 'all_characters'  # better than 'object_list'
+
+    def get_queryset(self):
+        return Character.objects.all()
 
 
-def view_character(request, character_id):
-    character = get_object_or_404(Character, pk=character_id)
-    context = {'character': character}
-    return render(request, 'characters/view_character.html', context)
+class CharacterDetailView(generic.DetailView):
+
+    model = Character
+    template_name = 'characters/view_character.html'
 
 
 def create_character(request):
