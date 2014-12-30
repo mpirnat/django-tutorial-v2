@@ -1,0 +1,12 @@
+<h1>Edit a Character</h1>
+
+<form action="{% url 'characters:edit' pk=object.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input type="reset">
+        <button href="{% url 'characters:view' pk=object.id %}">Cancel</button>
+        <input type="submit" value="Save">
+    </p>
+</form>
+

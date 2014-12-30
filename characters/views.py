@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from characters.forms import CharacterForm
 from characters.models import Character, Class, Race
@@ -27,6 +27,16 @@ class CharacterCreationView(CreateView):
     model = Character
     template_name = 'characters/create_character.html'
     form_class = CharacterForm
+
+    def get_success_url(self):
+        return reverse('characters:view', kwargs={'pk': self.object.pk})
+
+
+class CharacterUpdateView(UpdateView):
+
+    model = Character
+    form_class = CharacterForm
+    template_name = 'characters/update_character.html'
 
     def get_success_url(self):
         return reverse('characters:view', kwargs={'pk': self.object.pk})

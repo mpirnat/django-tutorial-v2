@@ -27,4 +27,6 @@
     <p>Empty!</p>
 {% endif %}
 
+<p><a href="{% url 'characters:edit' pk=character.id %}">Edit</a></p>
+
 <p><a href="{% url 'characters:index' %}">Back</a></p>
