@@ -26,12 +26,7 @@ class CharacterCreationView(CreateView):
 
     model = Character
     template_name = 'characters/create_character.html'
-    fields = ['name', 'background']
-
-    def form_valid(self, form):
-        form.instance.race_id = 1
-        form.instance.cclass_id = 1
-        return super(CharacterCreationView, self).form_valid(form)
+    form_class = CharacterForm
 
     def get_success_url(self):
         return reverse('characters:view', kwargs={'pk': self.object.pk})

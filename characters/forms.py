@@ -1,7 +1,9 @@
 from django import forms
 
+from characters.models import Character
 
-class CharacterForm(forms.Form):
 
-    name = forms.CharField(max_length=200)
-    background = forms.CharField()
+class CharacterForm(forms.ModelForm):
+
+    class Meta:
+        model = Character
