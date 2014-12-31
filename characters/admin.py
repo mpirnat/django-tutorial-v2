@@ -4,15 +4,18 @@ from characters.models import Character, Race, Class, Item
 
 class CharacterAdmin(admin.ModelAdmin):
 
-    list_display = ('name', 'level', 'race', 'cclass', 'created', 'modified')
+    list_display = ('name', 'level', 'race', 'cclass', 'player',
+                    'created', 'modified')
     list_filter = ('cclass__name', 'race__name', 'created', 'modified')
 
-    search_fields = ['name', 'background', 'race__name', 'cclass__name']
+    search_fields = ['name', 'background', 'race__name', 'cclass__name',
+                     'player__username']
 
     readonly_fields = ('created', 'modified')
 
     fieldsets = [
-        (None, {'fields': ['name', 'level', 'race', 'cclass', 'background']}),
+        (None, {'fields': ['player', 'name', 'level', 'race', 'cclass',
+                           'background']}),
         ('Hit Points', {'fields': ['max_hit_points', 'current_hit_points']}),
         ('Stats', {'fields': ['strength', 'dexterity', 'constitution',
                               'intelligence', 'wisdom', 'charisma']}),
