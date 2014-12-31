@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <title>Dungeons & Djangos</title>
+    </head>
+    <body>
+        <style>
+            body {
+                font-family: sans-serif;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 10em;
+            }
+        </style>
+
+        <p>Welcome to the world of...</p>
+        <p><img src="{% static 'dungeons-djangos.png' %}" alt="Dungeons & Djangos"></p>
+        <p><a href="{% url 'characters:index' %}">Enter</a> if you dare!</p>
+
+    </body>
+</html>
