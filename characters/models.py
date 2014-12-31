@@ -91,7 +91,15 @@ class Item(models.Model):
         return self.name
 
 
+class CharacterManager(models.Manager):
+
+    def for_user(self, user):
+        return self.get_query_set().filter(player=user)
+
+
 class Character(models.Model):
+
+    objects = CharacterManager()
 
     player = models.ForeignKey(User)
 
