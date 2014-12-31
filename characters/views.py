@@ -32,6 +32,9 @@ class CharacterCreationView(CreateView):
         form.instance.player = self.request.user
         return super(CharacterCreationView, self).form_valid(form)
 
+    def get_queryset(self):
+        return Character.objects.for_user(self.request.user)
+
     def get_success_url(self):
         return reverse('characters:view', kwargs={'pk': self.object.pk})
 
@@ -42,14 +45,20 @@ class CharacterUpdateView(UpdateView):
     form_class = CharacterForm
     template_name = 'characters/update_character.html'
 
+    def get_queryset(self):
+        return Character.objects.for_user(self.request.user)
+
     def get_success_url(self):
         return reverse('characters:view', kwargs={'pk': self.object.pk})
 
 
 class CharacterDeleteView(DeleteView):
 
-	model = Character
-	template_name = 'characters/delete_character.html'
+    model = Character
+    template_name = 'characters/delete_character.html'
 
-	def get_success_url(self):
-		return reverse('characters:index')
+    def get_queryset(self):
+        return Character.objects.for_user(self.request.user)
+
+    def get_success_url(self):
+        return reverse('characters:index')
