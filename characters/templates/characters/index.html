@@ -1,7 +1,9 @@
 {% if user.is_authenticated %}
     <p>Signed in as {{user.username}}!</p>
+    <p><a href="{% url 'auth:logout' %}">Log Out</a></p>
 {% else %}
     <p><a href="{% url 'accounts:register' %}">Register</a></p>
+    <p><a href="{% url 'auth:login' %}">Log In</a></p>
 {% endif %}
 
 <h1>Characters</h1>
