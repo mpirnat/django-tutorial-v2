@@ -6,6 +6,8 @@
 <h1>{{character.name}}</h1>
 <h2>Level {{character.level}} {{character.race.name}} {{character.cclass.name}}</h2>
 
+<p><label>Player:</label> {{character.player.username}}</p>
+
 <h3>Background</h3>
 {% if character.background %}
     <p>{{character.background}}</p>
