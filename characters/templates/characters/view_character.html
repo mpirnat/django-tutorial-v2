@@ -35,8 +35,10 @@
 {% endif %}
 
 <nav>
+    {% if character.player_id == user.id %}
     <p><a href="{% url 'characters:edit' pk=character.id %}">Edit</a></p>
     <p><a href="{% url 'characters:delete' pk=character.id %}">Delete</a></p>
+    {% endif %}
     <p><a href="{% url 'characters:index' %}">Back</a></p>
 </nav>
 {% endblock %}
