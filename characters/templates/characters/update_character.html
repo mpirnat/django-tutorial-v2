@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Character: {{object.name}}{% endblock %}
+
+{% block content %}
 <h1>Edit a Character</h1>
 
 <form action="{% url 'characters:edit' pk=object.id %}" method="POST">
@@ -9,4 +14,4 @@
         <input type="submit" value="Save">
     </p>
 </form>
-
+{% endblock %}

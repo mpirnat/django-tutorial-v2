@@ -1,11 +1,8 @@
-{% if user.is_authenticated %}
-    <p>Signed in as {{user.username}}!</p>
-    <p><a href="{% url 'auth:logout' %}">Log Out</a></p>
-{% else %}
-    <p><a href="{% url 'accounts:register' %}">Register</a></p>
-    <p><a href="{% url 'auth:login' %}">Log In</a></p>
-{% endif %}
+{% extends "base.html" %}
 
+{% block title %}List of Characters{% endblock %}
+
+{% block content %}
 <h1>Characters</h1>
 {% if all_characters %}
     <ul>
@@ -18,3 +15,4 @@
 {% endif %}
 
 <p><a href="{% url 'characters:create' %}">Create a new character</a></p>
+{% endblock %}
