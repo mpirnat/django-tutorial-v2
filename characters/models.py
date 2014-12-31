@@ -1,4 +1,6 @@
 import random
+
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -90,6 +92,8 @@ class Item(models.Model):
 
 
 class Character(models.Model):
+
+    player = models.ForeignKey(User)
 
     name = models.CharField(max_length=200)
     background = models.TextField()
