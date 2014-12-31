@@ -1,0 +1,8 @@
+<h1>Log In</h1>
+
+<form method="POST" action="{% url 'auth:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Log In">
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
