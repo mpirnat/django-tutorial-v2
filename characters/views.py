@@ -28,6 +28,10 @@ class CharacterCreationView(CreateView):
     template_name = 'characters/create_character.html'
     form_class = CharacterForm
 
+    def form_valid(self, form):
+        form.instance.player = self.request.user
+        return super(CharacterCreationView, self).form_valid(form)
+
     def get_success_url(self):
         return reverse('characters:view', kwargs={'pk': self.object.pk})
 
