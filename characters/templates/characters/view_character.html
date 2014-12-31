@@ -1,3 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}View Character: {{character.name}}{% endblock %}
+
+{% block content %}
 <h1>{{character.name}}</h1>
 <h2>Level {{character.level}} {{character.race.name}} {{character.cclass.name}}</h2>
 
@@ -27,8 +32,9 @@
     <p>Empty!</p>
 {% endif %}
 
-<p><a href="{% url 'characters:edit' pk=character.id %}">Edit</a></p>
-
-<p><a href="{% url 'characters:delete' pk=character.id %}">Delete</a></p>
-
-<p><a href="{% url 'characters:index' %}">Back</a></p>
+<nav>
+    <p><a href="{% url 'characters:edit' pk=character.id %}">Edit</a></p>
+    <p><a href="{% url 'characters:delete' pk=character.id %}">Delete</a></p>
+    <p><a href="{% url 'characters:index' %}">Back</a></p>
+</nav>
+{% endblock %}

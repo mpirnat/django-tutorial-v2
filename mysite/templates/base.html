@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}Default Title{% endblock %} | Dungeons & Djangos</title>
+    </head>
+    <body>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            nav {
+                font-size: small;
+            }
+            label {
+                font-weight: bold;
+            }
+        </style>
+
+        <nav>
+            {% if user.is_authenticated %}
+                <p>Signed in as {{user.username}}!</p>
+                <p><a href="{% url 'auth:logout' %}">Log Out</a></p>
+            {% else %}
+                <p><a href="{% url 'accounts:register' %}">Register</a></p>
+                <p><a href="{% url 'auth:login' %}">Log In</a></p>
+            {% endif %}
+            <p><a href="{% url 'characters:index' %}">Home</a></p>
+        </nav>
+
+        {% block content %}{% endblock %}
+    </body>
+</html>
