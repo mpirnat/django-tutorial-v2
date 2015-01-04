@@ -48,7 +48,7 @@ Setting Your Path (Windows)
 
 **If you're on Windows**,
 you may need to update your PATH
-so that Window can find your python.exe.
+so that Windows can find your python.exe.
 This varies a bit between
 [different versions of Windows][windows-path]
 so use the method that's right for your OS.
@@ -113,7 +113,7 @@ good ol' "cmd" in Windows.)
 
   In the src directory from the previous step:
 
-      $ git reset --hard ex00
+      $ git reset --hard exercise01.1
 
 You should now be ready for the tutorial!
 
@@ -162,7 +162,7 @@ With gratitude to the Python and Django communities for their accomplishments.
 [git]: http://git-scm.com
 [mcrute]: http://mike.crute.org
 [mpirnat]: http://mike.pirnat.com
-[python]: http://python.org/download/
+[python]: https://python.org/downloads/
 [slides]: #TODO
 [v1]: https://github.com/mpirnat/django-tutorial
 [windows-path]: http://www.java.com/en/download/help/path.xml
