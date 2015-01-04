@@ -79,7 +79,7 @@ good ol' "cmd" in Windows.)
 
       > pyvenv.py django-tutorial-v2
       > cd django-tutorial-v2
-      > Scripts/activate.bat
+      > Scripts\activate.bat
 
  2. Clone this repository
 
