@@ -163,6 +163,6 @@ With gratitude to the Python and Django communities for their accomplishments.
 [mcrute]: http://mike.crute.org
 [mpirnat]: http://mike.pirnat.com
 [python]: http://python.org/download/
-[slides]: #TODO
+[slides]: https://speakerdeck.com/mpirnat/web-development-with-python-and-django-2015
 [v1]: https://github.com/mpirnat/django-tutorial
 [windows-path]: http://www.java.com/en/download/help/path.xml
